@@ -1,0 +1,2 @@
+class BoardImagesController < ApplicationController
+end
