@@ -1,0 +1,10 @@
+
+
+<%= button_to("Create a New Board", new_board_path, { :method => :get, :class => 'start_button' })%>
+
+
+
+<% @boards.each do |board| %>
+<p> <%= link_to board.title, board_path(board) %> </p>
+
+<% end %>
