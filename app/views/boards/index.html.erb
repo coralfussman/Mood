@@ -1,5 +1,7 @@
 <% if flash[:success] %>
-<%= flash[:success] %>
+  <% flash[:success].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
 <% end %>
 
 <%= button_to("Create a New Board", new_board_path, { :method => :get, :class => 'start_button' })%>

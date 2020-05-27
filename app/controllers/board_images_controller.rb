@@ -1,7 +1,5 @@
 class BoardImagesController < ApplicationController
     before_action :find_board_image, only: :destroy
-
-    validates :image_id, uniqueness: {scope: :board_id}
         
     def destroy
         @board_image.destroy
