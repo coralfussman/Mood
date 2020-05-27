@@ -1,0 +1,8 @@
+<% if flash[:board_image_error] %>
+    <%  flash[:board_image_error].each do |error|%>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
+
+

@@ -9,16 +9,14 @@ require 'faker'
 
 
 puts "Destroying images"
-puts "Destroying users"
-puts "Destroying boards"
-puts "Destroying board images"
-puts "Destroying categories"
-
-
 Image.destroy_all
+puts "Destroying users"
 User.destroy_all
+puts "Destroying boards"
 Board.destroy_all
+puts "Destroying board images"
 BoardImage.destroy_all
+puts "Destroying categories"
 Category.destroy_all
 ImageCategory.destroy_all
 
@@ -31,38 +29,40 @@ users =
     {name: "Greg", username: "super_duper_g", password: "beautiful"},
     {name: "Meg", username: "mwalsh", password: "m12345"}
     ]
-    users.each do |user|
-        User.create(user)
-      end 
 
-      3.times do 
-        Board.create(user_id: User.all.sample.id, title: Faker::Food.dish, description: Faker::Food.description)
-      end
-
-
-puts "Seeding images"
 puts "Seeding users"
+users.each do |user|
+  User.create(user)
+end 
+
 puts "Seeding boards"
-puts "Seeding board images"
+3.times do 
+  Board.create(user_id: User.all.sample.id, title: Faker::Food.dish, description: Faker::Food.description)
+end
+
+
 puts "Seeding categories"
-puts "Seeding image categories"
+cats = Category.create(title: "cats")
+beauty = Category.create(title: "beauty")
 
 cat_pictures = Unsplash::Photo.search("cats")
-cats = Category.create(title: "cats")
+beauty_pictures = Unsplash::Photo.search("beauty")
 
+puts "Seeding images"
+puts "Seeding image categories"
 cat_pictures.each do |photo|
     image = Image.create(img_url: photo["urls"]["regular"])
     ImageCategory.create(image_id: image.id, category_id: cats.id)
 end
 
+beauty_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: beauty.id)
+end
 
-
+puts "Seeding board images"
 3.times do 
-    BoardImage.create(board_id: Board.all.sample.id, image_id: Image.all.sample.id )
-  end
-
-  3.times do 
-    ImageCategory.create(image_id: Image.all.sample.id, category_id: Category.all.sample.id)
-  end
+  BoardImage.create(board_id: Board.all.sample.id, image_id: Image.all.sample.id )
+end
 
 

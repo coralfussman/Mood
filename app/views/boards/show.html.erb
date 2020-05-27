@@ -1,6 +1,10 @@
 <h2>All Your Mood Pins</h2>
+<p><%= @board.description %> </p>
+<%= button_to "Delete Board", board_path(@board), method: :delete %>
 
-<h3>Still needs image controller to complete</h3>
-<%# @boards.each do |image| %>
-<p> <%#= link_to board.image, board_path(board) %> </p>
-<%# end %>
+<%= button_to "Add Image", new_board_image_path, method: :get %>
+
+<% @board.board_images.each do |board_image| %>
+<img src= <%= board_image.image.img_url %>>
+<%= button_to "Delete Image", board_image_path(board_image), method: :delete %>
+<% end %>
