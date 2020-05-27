@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
         user = User.find_by(username: session_params[:username])
 
         if user && user.authenticate(session_params[:password]) 
-            flash[:success] = "Welcome!"
+            flash[:success] = ["Welcome!"]
             session[:user_id] = user.id 
             redirect_to user
         else 
-            flash[:error] = 'Something did not match'
+            flash[:errors] = ["Something did not match"]
             redirect_to new_login_path
         end 
     end

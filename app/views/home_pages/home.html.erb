@@ -1,7 +1,15 @@
 <h1> Let's Set the Mood </h1>
 
 <% if flash[:errors] %>
-<%= flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<% if flash[:success] %>
+  <% flash[:success].each do |success| %>
+    <p><%= success %></p>
+  <% end %>
 <% end %>
 
 <%= button_to("Create a Profile", new_user_path, { :method => :get, :class => 'start_button' })%>

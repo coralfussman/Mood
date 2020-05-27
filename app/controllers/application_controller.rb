@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     def authorized
         if @logged_in_user
         else
-            flash[:errors] = "You must login first"
+            flash[:errors] = ["You must login first"]
             redirect_to home_page_path
         end
     end

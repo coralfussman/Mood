@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
+    before_action :find_user, only: [:show, :edit, :update, :find]
     skip_before_action :authorized, only: [:new, :create]
 
     def new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
            session[:user_id] = user.id
            redirect_to boards_path(user)
         else
-           flash[:user_error] = user.errors.full_messages
+           flash[:errors] = user.errors.full_messages
            redirect_to new_user_path
         end 
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     
     def update
         @user.update(user_params)
-        redirect_to user_path(@user)
+        redirect_to account_path
     end
     
     def show
@@ -32,6 +32,12 @@ class UsersController < ApplicationController
     end
     
     def destroy
+        @logged_in_user.destroy
+        flash[:success] = ["Your account has been deleted"]
+        redirect_to home_page_path
+    end
+
+    def account
     end
 
     private

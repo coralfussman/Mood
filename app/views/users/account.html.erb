@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @logged_in_user.name.capitalize %> </h1>
+<p>Name: <%= @logged_in_user.name %></p>
+<p>Username: <%= @logged_in_user.username %></p>
+<p>Boards: <%= @logged_in_user.boards.count %></p>
+
+<%= button_to "Update Account", edit_user_path(@logged_in_user.id), method: :get %>
+<%= button_to 'Delete Account', { controller: :users, action: :destroy, id: @logged_in_user.id }, method: :delete, data: { confirm: 'Are you sure?' } %>

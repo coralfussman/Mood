@@ -16,7 +16,7 @@ class BoardsController < ApplicationController
            flash[:success] = ["Fresh Slate! Add Images From the Gallery to Begin!"]
            redirect_to board_path(@board)
         else
-           flash[:board_error] = board.errors.full_messages
+           flash[:errors] = @board.errors.full_messages
            redirect_to new_board_path
         end 
     end
