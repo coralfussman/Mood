@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
     before_action :find_board, only: [:show, :edit, :update, :destroy]
 
     def index
-        @boards = Board.all
+        @boards = @logged_in_user.boards.all
     end
  
     def new
@@ -11,10 +11,10 @@ class BoardsController < ApplicationController
     end
     
     def create
-        board = Board.create(board_params)
-        if board.valid?
+        @board = @logged_in_user.boards.create(board_params)
+        if @board.valid?
            flash[:success] = ["Fresh Slate! Add Images From the Gallery to Begin!"]
-           redirect_to board_path(board)
+           redirect_to board_path(@board)
         else
            flash[:board_error] = board.errors.full_messages
            redirect_to new_board_path

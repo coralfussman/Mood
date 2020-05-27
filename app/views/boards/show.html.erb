@@ -1,5 +1,7 @@
 <h2>All Your Mood Pins</h2>
-<p><%= @board.description %> </p>
+<p><%= @board.title %> </p>
+<p><em><%= @board.description %> </em></p>
+
 <%= button_to "Delete Board", board_path(@board), method: :delete %>
 
 <%= button_to "Add Image", new_board_image_path, method: :get %>

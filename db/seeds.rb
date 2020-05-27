@@ -20,21 +20,6 @@ puts "Destroying categories"
 Category.destroy_all
 ImageCategory.destroy_all
 
-
-users = 
-    [
-    {name: "Coral", username: "coral_fussman", password: "c12345"},
-    {name: "Ramon", username: "dark_laughter", password: "r12345"},
-    {name: "Emily", username: "emms", password: "e12345"},
-    {name: "Greg", username: "super_duper_g", password: "beautiful"},
-    {name: "Meg", username: "mwalsh", password: "m12345"}
-    ]
-
-puts "Seeding users"
-users.each do |user|
-  User.create(user)
-end 
-
 puts "Seeding boards"
 3.times do 
   Board.create(user_id: User.all.sample.id, title: Faker::Food.dish, description: Faker::Food.description)
