@@ -42,26 +42,61 @@ end
 
 
 puts "Seeding categories"
-cats = Category.create(title: "cats")
 beauty = Category.create(title: "beauty")
+art = Category.create(title: "art")
+fashion = Category.create(title: "fashion")
+color = Category.create(title: "color")
+food = Category.create(title: "food")
+animals = Category.create(title: "animals")
+home = Category.create(title: "home")
 
-cat_pictures = Unsplash::Photo.search("cats")
 beauty_pictures = Unsplash::Photo.search("beauty")
+art_pictures = Unsplash::Photo.search("art")
+fashion_pictures = Unsplash::Photo.search("fashion")
+color_pictures = Unsplash::Photo.search("color")
+food_pictures = Unsplash::Photo.search("food")
+animal_pictures = Unsplash::Photo.search("animals")
+home_pictures = Unsplash::Photo.search("home")
 
 puts "Seeding images"
 puts "Seeding image categories"
-cat_pictures.each do |photo|
-    image = Image.create(img_url: photo["urls"]["regular"])
-    ImageCategory.create(image_id: image.id, category_id: cats.id)
-end
-
 beauty_pictures.each do |photo|
   image = Image.create(img_url: photo["urls"]["regular"])
   ImageCategory.create(image_id: image.id, category_id: beauty.id)
 end
 
+art_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: art.id)
+end
+
+fashion_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: fashion.id)
+end
+
+color_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: color.id)
+end
+
+food_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: food.id)
+end
+
+animal_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: animals.id)
+end
+
+home_pictures.each do |photo|
+  image = Image.create(img_url: photo["urls"]["regular"])
+  ImageCategory.create(image_id: image.id, category_id: home.id)
+end
+
 puts "Seeding board images"
-3.times do 
+30.times do 
   BoardImage.create(board_id: Board.all.sample.id, image_id: Image.all.sample.id )
 end
 
