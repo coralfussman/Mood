@@ -4,13 +4,17 @@
   <% end %>
 <% end %>
 
-<%= button_to("Create a New Board", new_board_path, { :method => :get, :class => 'start_button' })%>
+<div class="container">
+    <%= button_to("Create a New Board", new_board_path, { :method => :get, :class => 'board-button' })%>
 
-
-
-<% @boards.each do |board| %>
-    <p> <%= link_to board.title, board_path(board) %> </p>
-    <% if board.images.count > 0 %>
-        <img src = <%= board.images.first.img_url%> height="100" width="100">
-    <% end %>
-<% end %>
+        <div class="index-layout">
+        <% @boards.each do |board| %>
+            <div class="home-index-card">
+                <%= link_to board.title, board_path(board) %> 
+                <% if board.images.count > 0 %>
+                    <img class="img-show" src = <%= board.images.first.img_url %> />
+                <% end %>
+            </div>
+         <% end %>
+    </div>
+</div>

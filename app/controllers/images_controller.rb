@@ -1,11 +1,13 @@
 class ImagesController < ApplicationController
-    before_action :find_image, only: :show
+    before_action :find_image, only: [:show]
 
     def index
         @images = Image.all
+        
     end
     
     def show
+        @board_image = BoardImage.new
     end
 
     private

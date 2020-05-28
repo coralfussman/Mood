@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1> Let's Set the Mood </h1>
 
 <% if flash[:errors] %>
@@ -14,8 +16,11 @@
 
 <% if @logged_in_user == nil %>
 
+<div class="index-layout">
 <%= button_to("Create a Profile", new_user_path, { :method => :get, :class => 'start_button' })%>
 
 <%= button_to("Login", new_login_path, { :method => :get, :class => 'start_button' })%>
 
 <% end %>
+</div>
+</div>
