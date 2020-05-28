@@ -10,10 +10,10 @@ class BoardImagesController < ApplicationController
         board_image = BoardImage.create(board_image_params)
         if board_image.valid?
            
-           redirect_to board_image_path(board)
+           redirect_to board_path(board_image.board.id)
         else
            flash[:board_image_error] = board_image.errors.full_messages
-           redirect_to board_path(board_image.id)
+           redirect_to board_path(board_image.board.id)
         end 
     end
         
