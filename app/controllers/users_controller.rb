@@ -23,8 +23,12 @@ class UsersController < ApplicationController
     end
     
     def update
-        @user.update(user_params)
-        redirect_to account_path
+        if @user.update(user_params)
+            redirect_to account_path
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to edit_user_path(@user)
+        end
     end
     
     def show
