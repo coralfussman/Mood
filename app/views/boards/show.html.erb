@@ -9,6 +9,13 @@
     <%= button_to "Delete Board", board_path(@board), method: :delete, :class => 'board-button' %>
 
         </div>
+
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+    
     <% @board.board_images.each do |board_image| %>
     <div class="index-card">
     <img class="img-show" src= <%= board_image.image.img_url %>

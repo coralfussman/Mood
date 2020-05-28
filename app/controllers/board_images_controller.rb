@@ -9,10 +9,9 @@ class BoardImagesController < ApplicationController
     def create
         board_image = BoardImage.create(board_image_params)
         if board_image.valid?
-           
            redirect_to board_path(board_image.board.id)
         else
-           flash[:board_image_error] = board_image.errors.full_messages
+           flash[:errors] = board_image.errors.full_messages
            redirect_to board_path(board_image.board.id)
         end 
     end
@@ -24,7 +23,7 @@ class BoardImagesController < ApplicationController
     
     private
     def board_image_params
-        params.require(:board_image).permit(:board_id, :user_id)
+        params.require(:board_image).permit(:board_id, :image_id)
     end
 
     def find_board_image

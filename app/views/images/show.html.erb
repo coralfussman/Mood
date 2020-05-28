@@ -7,7 +7,9 @@
             <%= f.label :board_id, "Pick a Board" %>
             <%= f.collection_select :board_id, Board.all, :id, :title %>
             
-            <%= f.submit class: 'button-form'%>
+            <%= f.hidden_field :image_id, :value => @image.id %>
+
+            <%= f.submit class: 'button'%>
         </div>
             <% end %>
     </div>
