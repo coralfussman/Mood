@@ -20,12 +20,6 @@ puts "Destroying categories"
 Category.destroy_all
 ImageCategory.destroy_all
 
-puts "Seeding boards"
-3.times do 
-  Board.create(user_id: User.all.sample.id, title: Faker::Food.dish, description: Faker::Food.description)
-end
-
-
 puts "Seeding categories"
 beauty = Category.create(title: "beauty")
 art = Category.create(title: "art")
@@ -80,9 +74,5 @@ home_pictures.each do |photo|
   ImageCategory.create(image_id: image.id, category_id: home.id)
 end
 
-puts "Seeding board images"
-30.times do 
-  BoardImage.create(board_id: Board.all.sample.id, image_id: Image.all.sample.id )
-end
 
 

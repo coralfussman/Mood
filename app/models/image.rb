@@ -7,8 +7,14 @@ class Image < ApplicationRecord
     def self.search(search)
         category = Category.find_by(title: search)
         if category
-            ic = ImageCategory.find_by(category_id: category.id)
-            self.where(id: ic.image_id)
+            ic = ImageCategory.where(category_id: category.id)
+
+            @images = []
+            ic.each do |ic|
+                @images << Image.where(id: ic.image_id)
+            end
+
+            @images
         end
     end
 

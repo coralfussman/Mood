@@ -13,10 +13,18 @@
             <div class = "error"><%= error %></div>
             <% end %>
         <% end %>
+        <% if params[:search] && @images.count < Image.all.count %>
+            <% @images.each do |image| %>
+            <div class="index-card">
+                <%= link_to image_tag("#{image[0].img_url}", width: "100", height: "100" ), image_path(image[0])%>
+            </div>
+            <% end %>
+        <% else %> 
             <% @images.each do |image| %>
             <div class="index-card">
                 <%= link_to image_tag("#{image.img_url}", width: "100", height: "100" ), image_path(image)%>
             </div>
             <% end %>
+        <% end %>
     </div>
 </div>
