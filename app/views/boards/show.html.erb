@@ -16,8 +16,8 @@
             <% end %>
                 <div class="col-rt">
                 <% @board.board_images.each do |board_image| %>
-                <div class="home-index-card">
-                <img class="img-show" src= <%= board_image.image.img_url %>
+                <div class="index-card">
+                <img src= <%= board_image.image.img_url%> width="100" height="105">
                 <%= button_to "Delete Image", board_image_path(board_image), method: :delete, :class => 'button'%>
                 </div>
         </div>
