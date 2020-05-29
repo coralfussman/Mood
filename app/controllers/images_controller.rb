@@ -4,11 +4,12 @@ class ImagesController < ApplicationController
     def index
         @images = Image.all
         #@images = Image.search(params[:search])
+
+
     end
     
     def show
         @board_image = BoardImage.new
-        @my_boards = @logged_in_user.boards.all
     end
 
     private
