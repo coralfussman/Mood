@@ -10,7 +10,7 @@
               
                <p><%= f.label :board_id, "Pick a Board" %></p>
             
-               <h1><%= f.collection_select :board_id, Board.all, :id, :title %></h1>
+               <h1><%= f.collection_select :board_id, @my_boards, :id, :title %></h1>
                 
                 <%= f.hidden_field :image_id, :value => @image.id %>
 
