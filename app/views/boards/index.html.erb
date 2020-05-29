@@ -9,7 +9,7 @@
 
         <div class="index-layout">
         <% @boards.each do |board| %>
-            <div class="home-index-card">
+            <div class="board-index-card">
                 <%= link_to board.title, board_path(board) %> 
                 <% if board.images.count > 0 %>
                     <img class="img-show" src = <%= board.images.first.img_url %> />

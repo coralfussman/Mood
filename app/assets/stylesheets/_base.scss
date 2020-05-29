@@ -11,6 +11,7 @@ body {
     margin: 0; 
     flex-direction: column;
     align: center;
+    align-content: center;
     
 }
 
@@ -40,11 +41,13 @@ h1, h2, h3{
     
 }  
 .container {
+    
+    align: center;
     margin-top: 5%;
     margin-bottom: 10px;
     padding-top: 15px;
     align-content: center;
-    width: 85%;
+    width: 90%;
     min-height: 2500px;
 }
 
@@ -52,7 +55,7 @@ h1, h2, h3{
 .index-layout {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    //justify-content: center;
     
 }
 .index-card {

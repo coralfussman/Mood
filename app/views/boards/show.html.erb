@@ -2,25 +2,25 @@
     <h2>All Your Mood Pins</h2>
     <h4><%= @board.description %> </h4>
     <div class="index-layout"> 
-    <div class="col-rt">
-    <%= button_to "Add Image", images_path, method: :get, :class => 'board-button' %>
-    <%= button_to "Update Board", edit_board_path(@board), method: :get, :class => 'button' %>
-    <%= button_to "Delete Board", board_path(@board), method: :delete, :class => 'board-button' %>
-     
-</div>
+            <div class="col-rt">
+            <%= button_to "Add Image", images_path, method: :get, :class => 'board-button' %>
+            <%= button_to "Update Board", edit_board_path(@board), method: :get, :class => 'button' %>
+            <%= button_to "Delete Board", board_path(@board), method: :delete, :class => 'board-button' %>
+            
+            </div>
 
-            <% if flash[:errors] %>
-                <% flash[:errors].each do |error| %>
-                    <p><%= error %></p>
+                <% if flash[:errors] %>
+                    <% flash[:errors].each do |error| %>
+                        <p><%= error %></p>
+                    <% end %>
                 <% end %>
-            <% end %>
-                <div class="col-rt">
+                <div class="col-rt2">
                 <% @board.board_images.each do |board_image| %>
-                <div class="home-index-card">
-                <img class="img-show" src= <%= board_image.image.img_url %>
-                <%= button_to "Delete Image", board_image_path(board_image), method: :delete, :class => 'button'%>
-                </div>
-        </div>
+                    <div class="home-index-card">
+                    <img class="img-show" src= <%= board_image.image.img_url %>
+                    <%= button_to "Delete Image", board_image_path(board_image), method: :delete, :class => 'button'%>
+                    </div>
+                 </div>
         <% end %>
     </div>
 </div>
