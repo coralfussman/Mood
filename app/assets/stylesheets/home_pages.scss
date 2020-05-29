@@ -1,3 +1,13 @@
 // Place all the styles related to the home_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.bg1 {
+    margin-left: 0;
+    /* top: -50%; */
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 40%;
+    height: auto;
+    z-index: -1;
+  }

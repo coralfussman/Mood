@@ -1,17 +1,24 @@
 <div class="container">
-    <div class="index-layout"></div>
-       
-            <img class="img-show" src = <%= @image.img_url %> />
-            <%= form_for @board_image do |f| %>
+    <div class="index-layout">
+      <div class="col">
+            <img class="img-board" src = <%= @image.img_url %> />
+        </div>
+            <div class="col2">
+                <h2>Feeling This Image?</h2>
+                <%= form_for @board_image do |f| %>
+                
+              
+               <p><%= f.label :board_id, "Pick a Board" %></p>
             
-            <%= f.label :board_id, "Pick a Board" %>
-            <%= f.collection_select :board_id, Board.all, :id, :title %>
-            
-            <%= f.hidden_field :image_id, :value => @image.id %>
+               <h1><%= f.collection_select :board_id, Board.all, :id, :title %></h1>
+                
+                <%= f.hidden_field :image_id, :value => @image.id %>
 
-            <%= f.submit class: 'button'%>
+                <%= f.submit class: 'button'%>
+            </div>
         </div>
             <% end %>
+       
     </div>
 </div>
 

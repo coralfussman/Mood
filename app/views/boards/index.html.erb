@@ -13,6 +13,8 @@
                 <%= link_to board.title, board_path(board) %> 
                 <% if board.images.count > 0 %>
                     <img class="img-show" src = <%= board.images.first.img_url %> />
+            <% else %>
+            <p>No Inspo Yet!</p>
                 <% end %>
             </div>
          <% end %>
